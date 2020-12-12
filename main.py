@@ -1,40 +1,41 @@
 import random
 
 def passwordLength():
-    choice = 'Incorrect'
-    while choice not in range(4,50):
-        choice = input("Please pick which row you would play your turn in [4 and 50] ")
-        if choice not in range(4,50):
-            print("Invalid choice, please enter only the numbers from [4, 50] ")
-    return int(choice)
+    choice = "Incorrect"
+    numChoice = 0
+    while numChoice not in range(4,20):
+        choice = input("Chose your password length [4 and 20] ")
+        numChoice = int(choice)
+        if numChoice not in range(4,20):
+            print("Invalid choice, please enter only the numbers from [4, 20] ")
+    return numChoice
 
 def passwordCharacters():
     characterList = ['_','#','&','$']
-    alpha a = 'a'
-    for (i in range(0,26):
-        characterList.append(alpha)
-        alpha = chr(ord(alpha) + 1)
-
-    Alpha A = 'A'
+    alpha = 'a'
     for i in range(0,26):
         characterList.append(alpha)
         alpha = chr(ord(alpha) + 1)
+
+    Alpha = 'A'
+    for i in range(0,26):
+        characterList.append(Alpha)
+        Alpha = chr(ord(Alpha) + 1)
 
     for i in range (0, 10):
         characterList.append(i)
 
     return characterList
 
-def generateRandomPassword(list, int):
-    password = random.choices(list, int);
+def generateRandomPassword(passList, n):
+    password = random.choices(passList, n)
     passwordStr = ""
-    //traverse the list
-    for i in password:
-        passwordStr += i
-
-    return passwordStr
+    return (passwordStr.join(password))
 
 #run the program
 length = passwordLength()
-charList = passwordList()
+#print(length)
+charList = passwordCharacters()
+#print(charList)
 password = generateRandomPassword(charList, length)
+print(password)
